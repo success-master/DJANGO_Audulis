@@ -1,0 +1,636 @@
+{#{% load staticfiles %}#}
+{#<!DOCTYPE html>#}
+{#<html>#}
+{#  <head>#}
+{#    <meta charset="utf-8">#}
+{#    <title>Adulis</title>#}
+{#    <link rel="shortcut icon" href="{% static 'images/adulisfavicon.png' %}">#}
+{##}
+{#    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">#}
+{#    <link rel="stylesheet" href="{% static 'css/app.css' %}">#}
+{##}
+{#    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>#}
+{#    <script src="{% static 'js/bootstrap.min.js' %}"></script>#}
+{##}
+{##}
+{#  </head>#}
+{#  <body>#}
+{#    <nav class="navbar navbar-default navbar-fixed-top">#}
+{#      <div class="navbar-inverse">#}
+{#        <div class="container">#}
+{#          <div class="navbar-header">#}
+{#            <a class="navbar-brand" href="/"><img src="{% static 'images/adulisfavicon.png' %}" height="23"></a>#}
+{#          </div>#}
+{#          <form class="navbar-form navbar-left" role="search" method="GET" action="/search/">#}
+{#            <div class="form-group">#}
+{#              <div class="input-group">#}
+{#                <input type="text" name="title" class="form-control" placeholder="Find Coffee">#}
+{#                <span class="input-group-btn">#}
+{#                  <button type="submit" class="btn btn-sucess">Search</button>#}
+{#                </span>#}
+{#              </div>#}
+{#            </div>#}
+{#          </form>#}
+{#          <ul class="nav navbar-nav navbar-right">#}
+{#            {% if user and not user.is_anonymous %}#}
+{#              <li class="dropdown">#}
+{#                <a href="#" class="dropdown-toggle" data-toggle="dropdown"#}
+{#                  role="button" aria-haspopup="true" aria-expanded="fase">#}
+{#                  <img src="{% if user.profile %} {{ user.profile.avatar }} {% else %} {% static 'img/avatar.png' %} {% endif %}" class="img-circle" height="22" width="22">&nbsp;#}
+{#                  {{ user.get_full_name|default:user.username }} <span class="caret"></span>#}
+{#                </a>#}
+{#                <ul class="dropdown-menu">#}
+{#                  <li><a href="{% url 'create_product' %}">Create a product</a></li>#}
+{#                  <li><a href="{% url 'my_products' %}">My products</a></li>#}
+{#                  <li role="separator" class="divider"></li>#}
+{#                  <li><a href="{% url 'my_sellings' %}">My Sellings</a></li>#}
+{#                  <li><a href="{% url 'my_buyings' %}">My Buyings</a></li>#}
+{#                  <li role="separator" class="divider"></li>#}
+{#                  <li><a href="{% url 'profile' user.username %}">My Profile</a></li>#}
+{#                  <li role="separator" class="divider"></li>#}
+{#                  <li><a href="{% url 'logout' %}">Logout</a></li>#}
+{#                </ul>#}
+{#              </li>#}
+{#            {% else %}#}
+{#              <li>#}
+{#                <a href="{% url 'login' %}">Login</a>#}
+{#              </li>#}
+{#            {% endif %}#}
+{#          </ul>#}
+{#        </div>#}
+{#      </div>#}
+{#      <div id="category">#}
+{#        <div class="container">#}
+{#          <ul class="nav navbar-nav">#}
+{#            <li><a href="/category/Arabica">Arabica</a></li>#}
+{#            <li><a href="/category/Robusta">Robusta</a></li>#}
+{#          </ul>#}
+{#        </div>#}
+{#      </div>#}
+{#    </nav>#}
+{#    <div id="body">#}
+{#      <div class="container">#}
+{#        {% block page %}#}
+{#        {% endblock %}#}
+{#      </div>#}
+{#    </div>#}
+{##}
+{#    <footer id="footer">#}
+{#      <div class="container">#}
+{#        <span>Adulis App &copy; 2019</span>#}
+{#      </div>#}
+{#    </footer>#}
+{#  </body>#}
+{#</html>#}
+{##}
+{#{% load staticfiles %}#}
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{#	<head>#}
+{#		<meta charset="utf-8">#}
+{#		<meta http-equiv="X-UA-Compatible" content="IE=edge">#}
+{#		<meta name="viewport" content="width=device-width, initial-scale=1">#}
+{#		<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->#}
+{#		<meta name="description" content="">#}
+{#		<meta name="author" content="">#}
+{#		<link rel="icon" href="favicon.ico">#}
+{#		<title>Adulis</title>#}
+{#		<!-- Bootstrap core CSS -->#}
+{#		<link href="https://use.fontawesome.com/releases/v5.0.7/css/all.css" rel="stylesheet">#}
+{#		<link href="../static/css/bootstrap.min.css" rel="stylesheet">#}
+{#		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">#}
+{#		<!-- Custom styles for this template -->#}
+{#		<link href="../static/css/owl.carousel.css" rel="stylesheet">#}
+{#		<link href="../static/css/owl.theme.default.min.css"  rel="stylesheet">#}
+{#		<link href="../static/css/style.css" rel="stylesheet">#}
+{#		<!-- Just for debugging purposes. Don't actually copy these 2 lines! -->#}
+{#		<!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->#}
+{#		<script src="../static/js/ie-emulation-modes-warning.js"></script>#}
+{#		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->#}
+{#		<!--[if lt IE 9]>#}
+{#		<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>#}
+{#		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>#}
+{#		<![endif]-->#}
+{#	</head>#}
+{#	<body id="page-top">#}
+{#		<!-- Navigation -->#}
+{#		<nav class="navbar navbar-default navbar-fixed-top">#}
+{#			<div class="container">#}
+{#				<!-- Brand and toggle get grouped for better mobile display -->#}
+{#				<div class="navbar-header page-scroll">#}
+{#					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">#}
+{#					<span class="sr-only">Toggle navigation</span>#}
+{#					<span class="icon-bar"></span>#}
+{#					<span class="icon-bar"></span>#}
+{#					<span class="icon-bar"></span>#}
+{#					</button>#}
+{#					<a class="navbar-brand page-scroll" href="#page-top"><img src="../static/images/adulis.png"></a>#}
+{#				</div>#}
+{##}
+{#				<!-- Collect the nav links, forms, and other content for toggling -->#}
+{#				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">#}
+{#					<ul class="nav navbar-nav navbar-right">#}
+{#						<li class="hidden">#}
+{#							<a href="#page-top"></a>#}
+{#						</li>#}
+{#						<li>#}
+{#							<a class="page-scroll" href="">Home</a>#}
+{#						</li>#}
+{#						<li>#}
+{#							<a class="page-scroll" href="/search_page">Sell Coffee</a>#}
+{#						</li>#}
+{#						<li>#}
+{#							<a class="page-scroll" href="/signin">Sign Up </a>#}
+{#						</li>#}
+{#                        {% if user and not user.is_anonymous %}#}
+{#                        <li class="dropdown">#}
+{#                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"#}
+{#                              role="button" aria-haspopup="true" aria-expanded="fase">#}
+{#                              <img src="{% if user.profile %} {{ user.profile.avatar }} {% else %} {% static 'images/avatar.png' %} {% endif %}" class="img-circle" height="22" width="22">&nbsp;#}
+{#                              {{ user.get_full_name|default:user.username }} <span class="caret"></span>#}
+{#                            </a>#}
+{#                            <ul class="dropdown-menu">#}
+{#                              <li><a href="{% url 'create_product' %}">Create a product</a></li>#}
+{#                              <li><a href="{% url 'my_products' %}">My products</a></li>#}
+{#                              <li role="separator" class="divider"></li>#}
+{#                              <li><a href="{% url 'my_sellings' %}">My Sellings</a></li>#}
+{#                              <li><a href="{% url 'my_buyings' %}">My Buyings</a></li>#}
+{#                              <li role="separator" class="divider"></li>#}
+{#                              <li><a href="{% url 'profile' user.username %}">My Profile</a></li>#}
+{#                              <li role="separator" class="divider"></li>#}
+{#                              <li><a href="{% url 'logout' %}">Logout</a></li>#}
+{#                            </ul>#}
+{#                         </li>#}
+{#                         {% else %}#}
+{#                        <li>#}
+{#                        <a class="page-scroll" href="{% url 'login' %}">Login</a>#}
+{#                        </li>#}
+{#                        {% endif %}#}
+{#                        <li>#}
+{#                            <a class="page-scroll " id="menu_bg" href="join-us.html">Join us</a>#}
+{#                        </li>#}
+{#                    </ul>#}
+{#				<!-- /.navbar-collapse -->#}
+{#                </div>#}
+{#			</div>#}
+{##}
+{#			<!-- /.container-fluid -->#}
+{#		</nav>#}
+{#		<!-- Header -->#}
+{#		<header>#}
+{#			<div class="container">#}
+{#				<div class="slider-container">#}
+{#					<div class="intro-text">#}
+{#							<div class="intro-heading">Connecting The Suppliers#}
+{#                            With Those in Demand</div>#}
+{#						<div class="search">#}
+{#                          <input type="text" class="searchTerm" placeholder="Search for sellers">#}
+{#                          <button type="submit" class="searchButton">SEARCH</button>#}
+{#                       </div>#}
+{#                        <form role="search" method="GET" action="/search/">#}
+{#                            <div class="search">#}
+{#                              <input type="text" name="title" class="searchTerm" placeholder="Search for sellers">#}
+{#                              <button type="submit" class="searchButton">SEARCH</button>#}
+{#                            </div>#}
+{#                        </form>#}
+{#					</div>#}
+{#				</div>#}
+{#			</div>#}
+{#		</header>#}
+{#		<section id="about" >#}
+{#			<div class="container">#}
+{#				<div class="row">#}
+{#					<div class="col-lg-12 text-center">#}
+{#						<div class="section-title">#}
+{#							<h2><b>Top Sellers Products</b><a href="/" class="hvr-rectangle-out">VIEW ALL</a></h2>#}
+{#							</div>#}
+{#					</div>#}
+{#				</div>#}
+{#				<div class="row">#}
+{#				    <div class="col-md-3 col-sm-12">#}
+{#                        <div class="seller_box">#}
+{#                            <div id="body">#}
+{#                              <div class="container">#}
+{#                                {% block page %}#}
+{#                                {% endblock %}#}
+{#                              </div>#}
+{#                            </div>#}
+{#                        </div>#}
+{#					</div>#}
+{#				</div>#}
+{#				<div class="row">#}
+{#					<div class="col-md-12 col-sm-12"><div class="view_btn"><a href="#"  class="hvr-shutter-in-horizontal" style="float:none;">View More</a></div></div>#}
+{#				</div>#}
+{#			</div>#}
+{#			<!-- /.container -->#}
+{#		</section>#}
+{##}
+{#		<section class="white_grey" style="padding-top:0px;">#}
+{#			<div class="container text-center">#}
+{#				<div class="row">#}
+{#					<div class="col-md-6 mb-sm-60">#}
+{#						<div class="coffe_seller">#}
+{#							<img src="../static/images/sign-img.png" alt="pic1" class="hvrbox-layer_bottom">#}
+{#						</div>#}
+{#					</div>#}
+{##}
+{##}
+{#					<div class="col-md-6 mb-sm-60">#}
+{#						<div class="coffe_slr_txt">#}
+{#							<h2>Sign up as a coffee Seller</h2>#}
+{#							<p>Sed ut perspiciatis unde omnis iste natus arror sit voluptetem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa</p>#}
+{#							<a href="#" id="join_us"  class="hvr-shutter-in-horizontal" style="float:none;">Join Us</a>#}
+{#						</div>#}
+{#					</div>#}
+{#				</div>#}
+{#			</div>#}
+{#		</section>#}
+{#        <section id="adulis_guide">#}
+{#            <div class="container">#}
+{#                <div class="row">#}
+{#                    <div class="col-sm-4">#}
+{#                     <h1 style="color:#fff;"><b>Adulis Guide</b></h1><p>Sed ut perspiciatis unde omnis iste natus arror sit voluptetem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa</p>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#        </section>#}
+{#        <section id="portfolio">#}
+{#        <div class="container">#}
+{#        <div class="row">#}
+{#            <div class="col-sm-12">#}
+{##}
+{#            <div class="seprator"></div>#}
+{#                <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">#}
+{#                  <!-- Wrapper for slides -->#}
+{#                  <div class="carousel-inner">#}
+{#                    <div class="item active">#}
+{#                      <div class="row" style="padding: 20px">#}
+{#                        <h5 style="color:#2A62FF;"><b>Not Satisfied yed?</b></h5>#}
+{#                        <h3 style="color:#2A62FF;"><strong>Hear what our customer says</strong></h3>#}
+{##}
+{#                        <div class="row">#}
+{#                        <div class="col-sm-4">#}
+{#                            <img src="../static/images/testimonial-img.png" class="img-responsive" style="width: 80px">#}
+{#                            </div>#}
+{#                            <div class="col-sm-8">#}
+{#                            <button style="border: none;"><i class="fa fa-quote-left testimonial_fa" aria-hidden="true"></i></button>#}
+{#                            <p class="testimonial_para">Lorem Ipsum ist ein einfacher Demo-Text für die Print- und Schriftindustrie. Lorem Ipsum ist in der Industrie bereits der Standard Demo-Text "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo en.</p>#}
+{#                            <i><strong>Andre Thompson</strong></i>#}
+{##}
+{#                        </div>#}
+{#                        </div>#}
+{#                      </div>#}
+{#                    </div>#}
+{#                 <div class="item ">#}
+{#                      <div class="row" style="padding: 20px">#}
+{#                        <h5 style="color:#2A62FF;"><b>Not Satisfied yed?</b></h5>#}
+{#                        <h3 style="color:#2A62FF;"><strong>Hear what our customer says</strong></h3>#}
+{##}
+{#                        <div class="row">#}
+{#                        <div class="col-sm-4">#}
+{#                            <img src="http://demos1.showcasedemos.in/jntuicem2017/html/v1/assets/images/jack.jpg" class="img-responsive" style="width: 80px">#}
+{#                            </div>#}
+{#                            <div class="col-sm-8">#}
+{#                            <button style="border: none;"><i class="fa fa-quote-left testimonial_fa" aria-hidden="true"></i></button>#}
+{#                            <p class="testimonial_para">Lorem Ipsum ist ein einfacher Demo-Text für die Print- und Schriftindustrie. Lorem Ipsum ist in der Industrie bereits der Standard Demo-Text "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo en.</p>#}
+{#                            <i><strong>Andre Thompson</strong></i>#}
+{##}
+{#                        </div>#}
+{#                        </div>#}
+{#                      </div>#}
+{#                    </div>#}
+{#                  </div>#}
+{#                </div>#}
+{#                <div class="controls testimonial_control pull-right">#}
+{#                    <a class="left" href="#carousel-example-generic"#}
+{#                      data-slide="prev"><i class="far fa-window-minimize"></i></a>#}
+{##}
+{#                    <a class="right" href="#carousel-example-generic"#}
+{#                      data-slide="next"><i class="far fa-window-minimize"></i></a>#}
+{#                  </div>#}
+{#            </div>#}
+{#        </div>#}
+{#        </div>#}
+{#        </section>#}
+{#        <section id="get_product">#}
+{#            <div class="container">#}
+{#                <div class="row">#}
+{#                <div class="product_get">#}
+{#                    <div class="col-sm-5">#}
+{#                     <h1 style="color:#2A62FF;"><b>Get our Product In your Pocker!</b></h1>#}
+{#                     <p>Sed ut perspiciatis unde omnis iste natus arror sit voluptetem accusantium</p>#}
+{#                        <a href="#"><img src="../static/images/google-pay.png"></a> <a href="#"><img src="../static/images/app-store.png"></a>#}
+{#                    </div>#}
+{#                    <div class="col-sm-7"> <img src="../static/images/phone-img.png" class="phone_img"></div>#}
+{#                </div></div>#}
+{#            </div>#}
+{#        </section>#}
+{##}
+{#		<p id="back-top">#}
+{#			<a href="#top"><i class="fa fa-angle-up"></i></a>#}
+{#		</p>#}
+{#		<footer>#}
+{#			<div class="container">#}
+{#				<div class="col-sm-3"><a href="#"><img src="../static/images/footer-logo.png" class="ftr_img"></a></h1>#}
+{#			 <p>sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, easque ipsa</p></div>#}
+{#				<div class="col-sm-3">#}
+{#					<h3>USEFUL LINKS</h3>#}
+{#					<ul>#}
+{#						<li><a href="#">About our company</a></li>#}
+{#						<li><a href="#">Contact us</a></li>#}
+{#						<li><a href="#">FAQ</a></li>#}
+{#						<li><a href="#">Blog</a></li>#}
+{#					</ul>#}
+{#				</div>#}
+{#				<div class="col-sm-3">#}
+{#					<h3>Navigation</h3>#}
+{#					<ul>#}
+{#						<li><a href="#">Become Seller</a></li>#}
+{#						<li><a href="#">Buyers</a></li>#}
+{#						<li><a href="#">Terms And Condition</a></li>#}
+{#						<li><a href="#">Privacy Terms</a></li>#}
+{#					</ul>#}
+{#				</div>#}
+{#				<div class="col-sm-3">#}
+{#					<h3>Brands</h3>#}
+{#					<ul>#}
+{#						<li><a href="#">Lorem Ipsum</a></li>#}
+{#						<li><a href="#">Dolor Ipsum</a></li>#}
+{#						<li><a href="#">Perspiciatis Lorem</a></li>#}
+{#						<li><a href="#">Lorem Ipsum</a></li>#}
+{#					</ul>#}
+{#				</div>#}
+{#			</div>#}
+{#		</footer>#}
+{##}
+{#		<!-- Modal for portfolio item 1 -->#}
+{#		<div class="modal fade" id="Modal-1" tabindex="-1" role="dialog" aria-labelledby="Modal-label-1">#}
+{#			<div class="modal-dialog" role="document">#}
+{#				<div class="modal-content">#}
+{#					<div class="modal-header">#}
+{#						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>#}
+{#						<h4 class="modal-title" id="Modal-label-1">Dean & Letter</h4>#}
+{#					</div>#}
+{#					<div class="modal-body">#}
+{#						<img src="../static/images/demo/portfolio-1.jpg" alt="img01" class="img-responsive" />#}
+{#						<div class="modal-works"><span>Branding</span><span>Web Design</span></div>#}
+{#						<p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe</p>#}
+{#					</div>#}
+{#					<div class="modal-footer">#}
+{#						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>#}
+{#					</div>#}
+{#				</div>#}
+{#			</div>#}
+{#		</div>#}
+{##}
+{#		<!-- Modal for portfolio item 2 -->#}
+{#		<div class="modal fade" id="Modal-2" tabindex="-1" role="dialog" aria-labelledby="Modal-label-2">#}
+{#			<div class="modal-dialog" role="document">#}
+{#				<div class="modal-content">#}
+{#					<div class="modal-header">#}
+{#						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>#}
+{#						<h4 class="modal-title" id="Modal-label-2">Startup Framework</h4>#}
+{#					</div>#}
+{#					<div class="modal-body">#}
+{#						<img src="../static/images/demo/portfolio-2.jpg" alt="img01" class="img-responsive" />#}
+{#						<div class="modal-works"><span>Branding</span><span>Web Design</span></div>#}
+{#						<p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe</p>#}
+{#					</div>#}
+{#					<div class="modal-footer">#}
+{#						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>#}
+{#					</div>#}
+{#				</div>#}
+{#			</div>#}
+{#		</div>#}
+{##}
+{#		<!-- Modal for portfolio item 3 -->#}
+{#		<div class="modal fade" id="Modal-3" tabindex="-1" role="dialog" aria-labelledby="Modal-label-3">#}
+{#			<div class="modal-dialog" role="document">#}
+{#				<div class="modal-content">#}
+{#					<div class="modal-header">#}
+{#						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>#}
+{#						<h4 class="modal-title" id="Modal-label-3">Lamp & Velvet</h4>#}
+{#					</div>#}
+{#					<div class="modal-body">#}
+{#						<img src="../static/images/demo/portfolio-3.jpg" alt="img01" class="img-responsive" />#}
+{#						<div class="modal-works"><span>Branding</span><span>Web Design</span></div>#}
+{#						<p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe</p>#}
+{#					</div>#}
+{#					<div class="modal-footer">#}
+{#						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>#}
+{#					</div>#}
+{#				</div>#}
+{#			</div>#}
+{#		</div>#}
+{##}
+{#		<!-- Modal for portfolio item 4 -->#}
+{#		<div class="modal fade" id="Modal-4" tabindex="-1" role="dialog" aria-labelledby="Modal-label-4">#}
+{#			<div class="modal-dialog" role="document">#}
+{#				<div class="modal-content">#}
+{#					<div class="modal-header">#}
+{#						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>#}
+{#						<h4 class="modal-title" id="Modal-label-4">Smart Name</h4>#}
+{#					</div>#}
+{#					<div class="modal-body">#}
+{#						<img src="../static/images/demo/portfolio-4.jpg" alt="img01" class="img-responsive" />#}
+{#						<div class="modal-works"><span>Branding</span><span>Web Design</span></div>#}
+{#						<p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe</p>#}
+{#					</div>#}
+{#					<div class="modal-footer">#}
+{#						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>#}
+{#					</div>#}
+{#				</div>#}
+{#			</div>#}
+{#		</div>#}
+{##}
+{#		<!-- Modal for portfolio item 5 -->#}
+{#		<div class="modal fade" id="Modal-5" tabindex="-1" role="dialog" aria-labelledby="Modal-label-5">#}
+{#			<div class="modal-dialog" role="document">#}
+{#				<div class="modal-content">#}
+{#					<div class="modal-header">#}
+{#						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>#}
+{#						<h4 class="modal-title" id="Modal-label-5">Fast People</h4>#}
+{#					</div>#}
+{#					<div class="modal-body">#}
+{#						<img src="../static/images/demo/portfolio-5.jpg" alt="img01" class="img-responsive" />#}
+{#						<div class="modal-works"><span>Branding</span><span>Web Design</span></div>#}
+{#						<p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe</p>#}
+{#					</div>#}
+{#					<div class="modal-footer">#}
+{#						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>#}
+{#					</div>#}
+{#				</div>#}
+{#			</div>#}
+{#		</div>#}
+{##}
+{#		<!-- Bootstrap core JavaScript#}
+{#			================================================== -->#}
+{#		<!-- Placed at the end of the document so the pages load faster -->#}
+{#		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>#}
+{#		<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>#}
+{#		<script src="../static/js/bootstrap.min.js"></script>#}
+{#		<script src="../static/js/owl.carousel.min.js"></script>#}
+{#		<script src="../static/js/cbpAnimatedHeader.js"></script>#}
+{#		<script src="../static/js/theme-scripts.js"></script>#}
+{#		<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->#}
+{#		<script src="../static/js/ie10-viewport-bug-workaround.js"></script>#}
+{#	</body>#}
+{#</html>#}
+
+{% extends 'template.html' %}
+{% block page %}
+    </nav>
+		<!-- Header -->
+		<header>
+			<div class="container">
+				<div class="slider-container">
+					<div class="intro-text">
+							<div class="intro-heading">Connecting The Suppliers
+                            With Those in Demand</div>
+{#						<div class="search">#}
+{#                          <input type="text" class="searchTerm" placeholder="Search for sellers">#}
+{#                          <button type="submit" class="searchButton">SEARCH</button>#}
+{#                       </div>#}
+                        <form role="search" method="GET" action="/search/">
+                            <div class="search">
+                              <input type="text" name="title" class="searchTerm" placeholder="Search for sellers">
+                              <button type="submit" class="searchButton">SEARCH</button>
+                            </div>
+                        </form>
+					</div>
+				</div>
+			</div>
+		</header>
+		<section id="about" >
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12 text-center">
+						<div class="section-title">
+							<h2><b>Top Sellers Products</b><a href="/" class="hvr-rectangle-out">VIEW ALL</a></h2>
+							</div>
+					</div>
+				</div>
+				<div class="row">
+				    <div class="col-md-3 col-sm-12">
+                        <div class="custom-seller">
+                            <div id="body">
+                              <div class="container">
+                                {% block page2 %}
+                                {% endblock %}
+                              </div>
+                            </div>
+                        </div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12 col-sm-12"><div class="view_btn"><a href="#"  class="hvr-shutter-in-horizontal" style="float:none;">View More</a></div></div>
+				</div>
+			</div>
+			<!-- /.container -->
+		</section>
+
+		<section class="white_grey" style="padding-top:0px;">
+			<div class="container text-center">
+				<div class="row">
+					<div class="col-md-6 mb-sm-60">
+						<div class="coffe_seller">
+							<img src="../static/images/sign-img.png" alt="pic1" class="hvrbox-layer_bottom">
+						</div>
+					</div>
+
+
+					<div class="col-md-6 mb-sm-60">
+						<div class="coffe_slr_txt">
+							<h2>Sign up as a coffee Seller</h2>
+							<p>Sed ut perspiciatis unde omnis iste natus arror sit voluptetem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa</p>
+							<a href="#" id="join_us"  class="hvr-shutter-in-horizontal" style="float:none;">Join Us</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+        <section id="adulis_guide">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-4">
+                     <h1 style="color:#fff;"><b>Adulis Guide</b></h1><p>Sed ut perspiciatis unde omnis iste natus arror sit voluptetem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="portfolio">
+        <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+
+            <div class="seprator"></div>
+                <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                  <!-- Wrapper for slides -->
+                  <div class="carousel-inner">
+                    <div class="item active">
+                      <div class="row" style="padding: 20px">
+                        <h5 style="color:#2A62FF;"><b>Not Satisfied yed?</b></h5>
+                        <h3 style="color:#2A62FF;"><strong>Hear what our customer says</strong></h3>
+
+                        <div class="row">
+                        <div class="col-sm-4">
+                            <img src="../static/images/testimonial-img.png" class="img-responsive" style="width: 80px">
+                            </div>
+                            <div class="col-sm-8">
+                            <button style="border: none;"><i class="fa fa-quote-left testimonial_fa" aria-hidden="true"></i></button>
+                            <p class="testimonial_para">Lorem Ipsum ist ein einfacher Demo-Text für die Print- und Schriftindustrie. Lorem Ipsum ist in der Industrie bereits der Standard Demo-Text "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo en.</p>
+                            <i><strong>Andre Thompson</strong></i>
+
+                        </div>
+                        </div>
+                      </div>
+                    </div>
+                 <div class="item ">
+                      <div class="row" style="padding: 20px">
+                        <h5 style="color:#2A62FF;"><b>Not Satisfied yed?</b></h5>
+                        <h3 style="color:#2A62FF;"><strong>Hear what our customer says</strong></h3>
+
+                        <div class="row">
+                        <div class="col-sm-4">
+                            <img src="http://demos1.showcasedemos.in/jntuicem2017/html/v1/assets/images/jack.jpg" class="img-responsive" style="width: 80px">
+                            </div>
+                            <div class="col-sm-8">
+                            <button style="border: none;"><i class="fa fa-quote-left testimonial_fa" aria-hidden="true"></i></button>
+                            <p class="testimonial_para">Lorem Ipsum ist ein einfacher Demo-Text für die Print- und Schriftindustrie. Lorem Ipsum ist in der Industrie bereits der Standard Demo-Text "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo en.</p>
+                            <i><strong>Andre Thompson</strong></i>
+
+                        </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="controls testimonial_control pull-right">
+                    <a class="left" href="#carousel-example-generic"
+                      data-slide="prev"><i class="far fa-window-minimize"></i></a>
+
+                    <a class="right" href="#carousel-example-generic"
+                      data-slide="next"><i class="far fa-window-minimize"></i></a>
+                  </div>
+            </div>
+        </div>
+        </div>
+        </section>
+        <section id="get_product">
+            <div class="container">
+                <div class="row">
+                <div class="product_get">
+                    <div class="col-sm-5">
+                     <h1 style="color:#2A62FF;"><b>Get our Product In your Pocker!</b></h1>
+                     <p>Sed ut perspiciatis unde omnis iste natus arror sit voluptetem accusantium</p>
+                        <a href="#"><img src="../static/images/google-pay.png"></a> <a href="#"><img src="../static/images/app-store.png"></a>
+                    </div>
+                    <div class="col-sm-7"> <img src="../static/images/phone-img.png" class="phone_img"></div>
+                </div></div>
+            </div>
+        </section>
+
+		<p id="back-top">
+			<a href="#top"><i class="fa fa-angle-up"></i></a>
+		</p>
+{% endblock %}

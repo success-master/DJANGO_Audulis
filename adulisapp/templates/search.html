@@ -1,0 +1,585 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<link rel="icon" href="favicon.ico">
+		<title>Adulis</title>
+		<!-- Bootstrap core CSS -->
+		<link href="https://use.fontawesome.com/releases/v5.0.7/css/all.css" rel="stylesheet">
+		<link href="../static/css/bootstrap.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+		<!-- Custom styles for this template -->
+		<link href="../static/css/owl.carousel.css" rel="stylesheet">
+		<link href="../static/css/owl.theme.default.min.css"  rel="stylesheet">
+		<link href="../static/css/style.css" rel="stylesheet">
+		<!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+		<!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+		<script src="../static/js/ie-emulation-modes-warning.js"></script>
+		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+		<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+
+	</head>
+	<body id="page-top" class="dashboard search">
+		<!-- Navigation -->
+		<nav class="navbar navbar-default navbar-fixed-top">
+			<div class="container">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header page-scroll">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand page-scroll no_on_scroll" href="#page-top"><img src="images/dashboard-logo.png"></a>
+					<a class="navbar-brand page-scroll on_scroll" href="#page-top"><img src="images/footer-logo.png"></a>
+				</div>
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav navbar-right">
+						<li class="hidden">
+							<a href="#page-top"></a>
+						</li>
+						<li>
+							<a class="page-scroll" href="index.html">Home</a>
+						</li>
+						<li>
+							<a class="active" href="search.html">Sell Coffee</a>
+						</li>
+						<li>
+							<a class="page-scroll" href="sign-in.html">Sign In </a>
+						</li>
+						<li>
+							<a class="page-scroll " id="menu_bg" href="join-us.html">Join us</a>
+						</li>
+
+					</ul>
+				</div>
+				<!-- /.navbar-collapse -->
+			</div>
+			<!-- /.container-fluid -->
+		</nav>
+		<!-- Header -->
+
+		<section id="dashboard_product" style="padding:100px 0; ">
+		<div id="tab_top">
+  <div id="exTab3">
+    <div class="top_tabs">
+      <div class="container">
+        <div class="row">
+          <ul  class="nav nav-pills">
+            <li class="active"> <a  href="#1b" data-toggle="tab_nw">Ethopia</a> </li>
+            <li><a href="#2b" data-toggle="tab_nw">Brazil</a> </li>
+            <li><a href="#3b" data-toggle="tab_nw">Peru</a> </li>
+            <li><a href="#4b" data-toggle="tab_nw">Germany</a> </li>
+            <li><a href="#5b" data-toggle="tab_nw">Italy</a> </li>
+            <li><a href="#6b" data-toggle="tab_nw">Switzerland</a> </li>
+            <li><a href="#7b" data-toggle="tab_nw">Egypt</a> </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+			<div class="container">
+				<div class="row">
+        <div class="col-md-2 col-sm-12 col-xs-12 filter_padding">
+          <div class="filter">
+            <h6>Filter Your Data</h6>
+            <div class="checkbox">
+              <form>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" value="">
+					<b>All Countires</b>
+                    </label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" value="">
+                    Ethopia</label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" value="">
+                    Brazil</label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" value="">
+                    Peru</label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" value="">
+                    Germany</label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" value="">
+                    Switzerland</label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" value="">
+                    Egypt</label>
+                </div>
+                <div class="view_all"> <a href="javascript:void()">View All</a> </div>
+                <div class="ship_top">
+                  <h6>Ship From</h6>
+                  <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown">Product Location<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="#">Action</a></li>
+                      <li><a href="#">Another action</a></li>
+                      <li><a href="#">Something else here</a></li>
+                    </ul>
+                  </li>
+                </div>
+                <div class="price_1">
+                  <h6>Minimum Weight (MOQ)</h6>
+                  <div class="form-group">
+                    <input type="text" class="form-control">
+                    <small style="padding-left:5px;">lb  to</small> </div>
+                  <div class="form-group">
+                    <input type="text" class="form-control">
+                    <small style="padding-left:5px;">lb</small> </div>
+                </div>
+                <div class="price_1">
+                  <h6>Price range per pound</h6>
+                  <div class="form-group"> <small style="padding-right:5px;">$</small>
+                    <input type="text" class="form-control">
+                  </div>
+                  <div class="form-group"> <small style="padding-right:5px;">to $</small>
+                    <input type="text" class="form-control">
+                  </div>
+                </div>
+                <div class="suplier">
+                  <h6>Suplier Type</h6>
+                  <div class="checkbox_2">
+                    <label>
+                      <input type="checkbox" value="">
+                      Verified</label>
+                  </div>
+                  <div class="checkbox_2">
+                    <label>
+                      <input type="checkbox" value="">
+                      Top Seler</label>
+                  </div>
+                  <div class="checkbox_2">
+                    <label>
+                      <input type="checkbox" value="">
+                      New Seller</label>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="tab-content clearfix">
+          <div class="tab-pane active" id="1b">
+            <div class="col-md-10 col-sm-12 col-xs-12 col-md-offset-2">
+              <div class="top_left">
+                <div class="american_top">
+                  <div class="Ethopia_top">
+                    <h2>Ethopia</h2>
+                  </div>
+                  <div class="col-md-4 col-sm-4 col-xs-12">
+                    <div class="best_1"> <img src="images/1.png" alt="" class="img-responsive">
+                      <div class="top_border">
+                        <div class="left_coffee">
+                          <h4>Best American Coffee</h4>
+                        </div>
+                        <div class="right_coffee"> <small>Rating:</small><b>4/5</b><span>(15)</span> </div>
+                        <div class="top_rated"> <small>Top Rated Seller:</small> <a href="javascript:void()">John Doe</a>
+                          <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque </p>
+                        </div>
+                        <div class="left_starting"> <small>MOQ - 100 Ib</small> </div>
+                        <div class="right_starting"> <small>Starting at<b>$1</b>per Ib</small> </div>
+                      </div>
+                      <div class="contact_suplier"> <a href="javascript:void()">Contact Suplier</a> </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4 col-sm-4 col-xs-12">
+                    <div class="best_1"> <img src="images/2.png" alt="" class="img-responsive">
+                      <div class="top_border">
+                        <div class="left_coffee">
+                          <h4>Best American Coffee</h4>
+                        </div>
+                        <div class="right_coffee"> <small>Rating:</small><b>4/5</b><span>(15)</span> </div>
+                        <div class="top_rated"> <small>Top Rated Seller:</small> <a href="javascript:void()">John Doe</a>
+                          <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque </p>
+                        </div>
+                        <div class="left_starting"> <small>MOQ - 100 Ib</small> </div>
+                        <div class="right_starting"> <small>Starting at<b>$1</b>per Ib</small> </div>
+                      </div>
+                      <div class="contact_suplier"> <a href="javascript:void()">Contact Suplier</a> </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4 col-sm-4 col-xs-12">
+                    <div class="best_1"> <img src="images/3.png" alt="" class="img-responsive">
+                      <div class="top_border">
+                        <div class="left_coffee">
+                          <h4>Best American Coffee</h4>
+                        </div>
+                        <div class="right_coffee"> <small>Rating:</small><b>4/5</b><span>(15)</span> </div>
+                        <div class="top_rated"> <small>Top Rated Seller:</small> <a href="javascript:void()">John Doe</a>
+                          <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque </p>
+                        </div>
+                        <div class="left_starting"> <small>MOQ - 100 Ib</small> </div>
+                        <div class="right_starting"> <small>Starting at<b>$1</b>per Ib</small> </div>
+                      </div>
+                      <div class="contact_suplier"> <a href="javascript:void()">Contact Suplier</a> </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="american_top">
+                  <div class="col-md-4 col-sm-4 col-xs-12">
+                    <div class="best_1"> <img src="images/4.png" alt="" class="img-responsive">
+                      <div class="top_border">
+                        <div class="left_coffee">
+                          <h4>Best American Coffee</h4>
+                        </div>
+                        <div class="right_coffee"> <small>Rating:</small><b>4/5</b><span>(15)</span> </div>
+                        <div class="top_rated"> <small>Top Rated Seller:</small> <a href="javascript:void()">John Doe</a>
+                          <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque </p>
+                        </div>
+                        <div class="left_starting"> <small>MOQ - 100 Ib</small> </div>
+                        <div class="right_starting"> <small>Starting at<b>$1</b>per Ib</small> </div>
+                      </div>
+                      <div class="contact_suplier"> <a href="javascript:void()">Contact Suplier</a> </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4 col-sm-4 col-xs-12">
+                    <div class="best_1"> <img src="images/5.png" alt="" class="img-responsive">
+                      <div class="top_border">
+                        <div class="left_coffee">
+                          <h4>Best American Coffee</h4>
+                        </div>
+                        <div class="right_coffee"> <small>Rating:</small><b>4/5</b><span>(15)</span> </div>
+                        <div class="top_rated"> <small>Top Rated Seller:</small> <a href="javascript:void()">John Doe</a>
+                          <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque </p>
+                        </div>
+                        <div class="left_starting"> <small>MOQ - 100 Ib</small> </div>
+                        <div class="right_starting"> <small>Starting at<b>$1</b>per Ib</small> </div>
+                      </div>
+                      <div class="contact_suplier"> <a href="javascript:void()">Contact Suplier</a> </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4 col-sm-4 col-xs-12">
+                    <div class="best_1"> <img src="images/6.png" alt="" class="img-responsive">
+                      <div class="top_border">
+                        <div class="left_coffee">
+                          <h4>Best American Coffee</h4>
+                        </div>
+                        <div class="right_coffee"> <small>Rating:</small><b>4/5</b><span>(15)</span> </div>
+                        <div class="top_rated"> <small>Top Rated Seller:</small> <a href="javascript:void()">John Doe</a>
+                          <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque </p>
+                        </div>
+                        <div class="left_starting"> <small>MOQ - 100 Ib</small> </div>
+                        <div class="right_starting"> <small>Starting at<b>$1</b>per Ib</small> </div>
+                      </div>
+                      <div class="contact_suplier"> <a href="javascript:void()">Contact Suplier</a> </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="american_top">
+                  <div class="col-md-4 col-sm-4 col-xs-12">
+                    <div class="best_1"> <img src="images/7.png" alt="" class="img-responsive">
+                      <div class="top_border">
+                        <div class="left_coffee">
+                          <h4>Best American Coffee</h4>
+                        </div>
+                        <div class="right_coffee"> <small>Rating:</small><b>4/5</b><span>(15)</span> </div>
+                        <div class="top_rated"> <small>Top Rated Seller:</small> <a href="javascript:void()">John Doe</a>
+                          <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque </p>
+                        </div>
+                        <div class="left_starting"> <small>MOQ - 100 Ib</small> </div>
+                        <div class="right_starting"> <small>Starting at<b>$1</b>per Ib</small> </div>
+                      </div>
+                      <div class="contact_suplier"> <a href="javascript:void()">Contact Suplier</a> </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4 col-sm-4 col-xs-12">
+                    <div class="best_1"> <img src="images/8.png" alt="" class="img-responsive">
+                      <div class="top_border">
+                        <div class="left_coffee">
+                          <h4>Best American Coffee</h4>
+                        </div>
+                        <div class="right_coffee"> <small>Rating:</small><b>4/5</b><span>(15)</span> </div>
+                        <div class="top_rated"> <small>Top Rated Seller:</small> <a href="javascript:void()">John Doe</a>
+                          <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque </p>
+                        </div>
+                        <div class="left_starting"> <small>MOQ - 100 Ib</small> </div>
+                        <div class="right_starting"> <small>Starting at<b>$1</b>per Ib</small> </div>
+                      </div>
+                      <div class="contact_suplier"> <a href="javascript:void()">Contact Suplier</a> </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4 col-sm-4 col-xs-12">
+                    <div class="best_1"> <img src="images/1.png" alt="" class="img-responsive">
+                      <div class="top_border">
+                        <div class="left_coffee">
+                          <h4>Best American Coffee</h4>
+                        </div>
+                        <div class="right_coffee"> <small>Rating:</small><b>4/5</b><span>(15)</span> </div>
+                        <div class="top_rated"> <small>Top Rated Seller:</small> <a href="javascript:void()">John Doe</a>
+                          <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque </p>
+                        </div>
+                        <div class="left_starting"> <small>MOQ - 100 Ib</small> </div>
+                        <div class="right_starting"> <small>Starting at<b>$1</b>per Ib</small> </div>
+                      </div>
+                      <div class="contact_suplier"> <a href="javascript:void()">Contact Suplier</a> </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="american_top">
+                  <div class="col-md-4 col-sm-4 col-xs-12">
+                    <div class="best_1"> <img src="images/1.png" alt="" class="img-responsive">
+                      <div class="top_border">
+                        <div class="left_coffee">
+                          <h4>Best American Coffee</h4>
+                        </div>
+                        <div class="right_coffee"> <small>Rating:</small><b>4/5</b><span>(15)</span> </div>
+                        <div class="top_rated"> <small>Top Rated Seller:</small> <a href="javascript:void()">John Doe</a>
+                          <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque </p>
+                        </div>
+                        <div class="left_starting"> <small>MOQ - 100 Ib</small> </div>
+                        <div class="right_starting"> <small>Starting at<b>$1</b>per Ib</small> </div>
+                      </div>
+                      <div class="contact_suplier"> <a href="javascript:void()">Contact Suplier</a> </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4 col-sm-4 col-xs-12">
+                    <div class="best_1"> <img src="images/1.png" alt="" class="img-responsive">
+                      <div class="top_border">
+                        <div class="left_coffee">
+                          <h4>Best American Coffee</h4>
+                        </div>
+                        <div class="right_coffee"> <small>Rating:</small><b>4/5</b><span>(15)</span> </div>
+                        <div class="top_rated"> <small>Top Rated Seller:</small> <a href="javascript:void()">John Doe</a>
+                          <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque </p>
+                        </div>
+                        <div class="left_starting"> <small>MOQ - 100 Ib</small> </div>
+                        <div class="right_starting"> <small>Starting at<b>$1</b>per Ib</small> </div>
+                      </div>
+                      <div class="contact_suplier"> <a href="javascript:void()">Contact Suplier</a> </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4 col-sm-4 col-xs-12">
+                    <div class="best_1"> <img src="images/1.png" alt="" class="img-responsive">
+                      <div class="top_border">
+                        <div class="left_coffee">
+                          <h4>Best American Coffee</h4>
+                        </div>
+                        <div class="right_coffee"> <small>Rating:</small><b>4/5</b><span>(15)</span> </div>
+                        <div class="top_rated"> <small>Top Rated Seller:</small> <a href="javascript:void()">John Doe</a>
+                          <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque </p>
+                        </div>
+                        <div class="left_starting"> <small>MOQ - 100 Ib</small> </div>
+                        <div class="right_starting"> <small>Starting at<b>$1</b>per Ib</small> </div>
+                      </div>
+                      <div class="contact_suplier"> <a href="javascript:void()">Contact Suplier</a> </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-------------1 tab-------------->
+        </div>
+      </div>
+
+			</div>
+			<!-- /.container -->
+		</div>
+
+
+	</div>
+			<!-- /.container -->
+		</section>
+
+
+		<p id="back-top">
+			<a href="#top"><i class="fa fa-angle-up"></i></a>
+		</p>
+		<footer>
+			<div class="container">
+				<div class="col-sm-3"><a href="#"><img src="images/footer-logo.png" class="ftr_img"></a></h1>
+			 <p>sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, easque ipsa</p></div>
+				<div class="col-sm-3">
+					<h3>USEFUL LINKS</h3>
+					<ul>
+						<li><a href="#">About our company</a></li>
+						<li><a href="#">Contact us</a></li>
+						<li><a href="#">FAQ</a></li>
+						<li><a href="#">Blog</a></li>
+					</ul>
+				</div>
+				<div class="col-sm-3">
+					<h3>Navigation</h3>
+					<ul>
+						<li><a href="#">Become Seller</a></li>
+						<li><a href="#">Buyers</a></li>
+						<li><a href="#">Terms And Condition</a></li>
+						<li><a href="#">Privacy Terms</a></li>
+					</ul>
+				</div>
+				<div class="col-sm-3">
+					<h3>Brands</h3>
+					<ul>
+						<li><a href="#">Lorem Ipsum</a></li>
+						<li><a href="#">Dolor Ipsum</a></li>
+						<li><a href="#">Perspiciatis Lorem</a></li>
+						<li><a href="#">Lorem Ipsum</a></li>
+					</ul>
+				</div>
+			</div>
+		</footer>
+
+		<!-- Modal for portfolio item 1 -->
+		<div class="modal fade" id="Modal-1" tabindex="-1" role="dialog" aria-labelledby="Modal-label-1">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title" id="Modal-label-1">Dean & Letter</h4>
+					</div>
+					<div class="modal-body">
+						<img src="images/demo/portfolio-1.jpg" alt="img01" class="img-responsive" />
+						<div class="modal-works"><span>Branding</span><span>Web Design</span></div>
+						<p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Modal for portfolio item 2 -->
+		<div class="modal fade" id="Modal-2" tabindex="-1" role="dialog" aria-labelledby="Modal-label-2">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title" id="Modal-label-2">Startup Framework</h4>
+					</div>
+					<div class="modal-body">
+						<img src="images/demo/portfolio-2.jpg" alt="img01" class="img-responsive" />
+						<div class="modal-works"><span>Branding</span><span>Web Design</span></div>
+						<p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Modal for portfolio item 3 -->
+		<div class="modal fade" id="Modal-3" tabindex="-1" role="dialog" aria-labelledby="Modal-label-3">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title" id="Modal-label-3">Lamp & Velvet</h4>
+					</div>
+					<div class="modal-body">
+						<img src="images/demo/portfolio-3.jpg" alt="img01" class="img-responsive" />
+						<div class="modal-works"><span>Branding</span><span>Web Design</span></div>
+						<p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Modal for portfolio item 4 -->
+		<div class="modal fade" id="Modal-4" tabindex="-1" role="dialog" aria-labelledby="Modal-label-4">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title" id="Modal-label-4">Smart Name</h4>
+					</div>
+					<div class="modal-body">
+						<img src="images/demo/portfolio-4.jpg" alt="img01" class="img-responsive" />
+						<div class="modal-works"><span>Branding</span><span>Web Design</span></div>
+						<p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Modal for portfolio item 5 -->
+		<div class="modal fade" id="Modal-5" tabindex="-1" role="dialog" aria-labelledby="Modal-label-5">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title" id="Modal-label-5">Fast People</h4>
+					</div>
+					<div class="modal-body">
+						<img src="images/demo/portfolio-5.jpg" alt="img01" class="img-responsive" />
+						<div class="modal-works"><span>Branding</span><span>Web Design</span></div>
+						<p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Bootstrap core JavaScript
+			================================================== -->
+		<!-- Placed at the end of the document so the pages load faster -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/owl.carousel.min.js"></script>
+		<script src="js/cbpAnimatedHeader.js"></script>
+		<script src="js/theme-scripts.js"></script>
+		<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+		<script src="js/ie10-viewport-bug-workaround.js"></script>
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="../static/js/bootstrap.min.js"></script>
+<script>
+function openCity(evt, cityName) {
+  // Declare all variables
+  var i, tabcontent, tablinks;
+
+  // Get all elements with class="tabcontent" and hide them
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+
+  // Get all elements with class="tablinks" and remove the class "active"
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+
+  // Show the current tab, and add an "active" class to the button that opened the tab
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+</script>
+
+	</body>
+</html>

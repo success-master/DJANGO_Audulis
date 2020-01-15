@@ -1,0 +1,104 @@
+{% extends 'template.html' %}
+{% load staticfiles %}
+
+{% block page %}
+    <section id="sign_in_bg" class="sign_up_main" style="padding:100px 0; ">
+		<div class="container">
+			<div class="row">
+				<div id="join" class="join_us">
+					<div class="product_from" id="join_main">
+						<img src="images/dashboard-logo.png" alt="Avatar" class="avatar">
+						<!-- Circles which indicates the steps of the form: -->
+						<div style="text-align:center;" class="progress_bar">
+							<p class="progres_bar"><span class="step new"><span class="step_text">Verified</span></span>
+							</p>
+							<p class="progres_bar"><span class="step new2"><span class="step_text">Information
+									</span></span></p>
+							<p class="progres_bar"><span class="step new3"><span
+										class="step_text">Complete</span></span></p>
+						</div>
+						<div class="product_from_inner">
+							<form id="regForm" action="/action_page.php">
+								<!-- One "tab" for each step in the form: -->
+								<div class="tab_product">
+									<p><input placeholder="Person@email.com" oninput="this.className = ''" name="fname">
+									</p>
+									<p><input placeholder="Password" oninput="this.className = ''" name="fname"></p>
+									<p><input placeholder="Confirm Password" oninput="this.className = ''" name="fname">
+									</p>
+									<p class="coffe_type"><input placeholder="City" oninput="this.className = ''"
+											name="lname"></p>
+									<p class="coffe_type cofee_right"><input placeholder="Country"
+											oninput="this.className = ''" name="lname"></p>
+									<p style="width:100%; float:left; text-align: left; font-weight: bold;">I am a
+										<input type="checkbox" value="" class="check"> Supplier <input type="checkbox"
+											value="" class="check"> Buyer</p>
+									<p><input placeholder="+111" oninput="this.className = ''" name="fname"
+											class="input_three_sm"><span class="slec">-</span><input placeholder="111"
+											oninput="this.className = ''" name="fname" class="input_three_sm"><span
+											class="slec">-</span><input placeholder="111111"
+											oninput="this.className = ''" name="fname" class="input_three"></p>
+									<p class="coffe_type"><input placeholder="First Name" oninput="this.className = ''"
+											name="lname"></p>
+									<p class="coffe_type cofee_right"><input placeholder="Last Name"
+											oninput="this.className = ''" name="lname"></p>
+									<p><input placeholder="Company Name" oninput="this.className = ''" name="fname"></p>
+									<p><span style="float:right; margin-top: -28px; font-size: 12px;">Must be a legally
+											registered company</span></p>
+								</div>
+								<div class="tab_product">
+									<p style="padding-bottom:0px;"><span><b>Sample Price Including Shipping</b></span>
+									</p>
+									<div class="input-container">
+										<i class="icon">$</i>
+										<input class="input-field" oninput="this.className = ''" type="text"
+											placeholder="" name="usrnm">
+									</div>
+									<p style="padding-bottom:0px;"><span><b>Product Price Per Pound</b></span></p>
+									<div class="input-container">
+										<i class="icon">$</i>
+										<input class="input-field" oninput="this.className = ''" type="text"
+											placeholder="" name="usrnm">
+									</div>
+									<div class="coffe_type"><span><b>Minimum Order</b></span>
+										<div class="input-container">
+											<i class="icon">Ibs</i>
+											<input class="input-field" oninput="this.className = ''" type="text"
+												placeholder="" name="usrnm">
+										</div>
+									</div>
+									<div class="coffe_type cofee_right"><span><b>Available to ship</b></span>
+										<div class="input-container">
+											<i class="icon">Ibs</i>
+											<input class="input-field" oninput="this.className = ''" type="text"
+												placeholder="" name="usrnm">
+										</div>
+									</div>
+
+
+								</div>
+								<div class="tab_product">Birthday:
+									<p><input placeholder="dd" oninput="this.className = ''" name="dd"></p>
+									<p><input placeholder="mm" oninput="this.className = ''" name="nn"></p>
+									<p><input placeholder="yyyy" oninput="this.className = ''" name="yyyy"></p>
+								</div>
+								<div class="tab_product">Login Info:
+									<p><input placeholder="Username..." oninput="this.className = ''" name="uname"></p>
+									<p><input placeholder="Password..." oninput="this.className = ''" name="pword"
+											type="password"></p>
+								</div>
+								<div style="overflow:auto;" class="continuee_box">
+									<div style="float:right;">
+										<button type="button" id="prevBtn" onclick="nextPrev(-1)">Cancel</button>
+										<button type="button" id="nextBtn" onclick="nextPrev(1)">Continue</button>
+									</div>
+								</div>
+
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /.container -->
+{% endblock %}

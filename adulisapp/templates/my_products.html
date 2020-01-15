@@ -1,0 +1,32 @@
+{% extends 'template.html' %}
+
+{% load staticfiles %}
+
+{% block page %}
+  <div style="margin-top: 150px"></div>
+  <h1 style="margin-bottom: 30px">My Products</h1>
+  <div class="panel panel-default">
+    <table class="table table-bordered table-striped">
+      <thead class="bg-success">
+        <tr>
+          <th>
+            <th>Product Title</th>
+            <th>Price ($)</th>
+            <th>Status</th>
+          </th>
+        </tr>
+      </thead>
+      <tbod>
+        {% for product in products %}
+          <tr>
+            <td>{{ forloop.counter }}</td>
+            <td><a href="{% url 'edit_product' product.id %}">{{ product.title }}</a></td>
+            <td>{{ product.price }}</td>
+            <td>{% if product.status %} Active {% else %} Disabled {% endif %} </td>
+          </tr>
+        {% endfor %}
+      </tbod>
+    </table>
+  </div>
+  <div style="margin-bottom: 400px"></div>
+{% endblock %}
