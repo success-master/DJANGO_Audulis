@@ -2,7 +2,7 @@ authy==2.2.3
 braintree==3.56.0
 certifi==2019.6.16
 chardet==3.0.4
-Django==2.2.4
+Django==2.2.24
 idna==2.8
 phonenumbers==8.10.16
 python-dotenv==0.10.3
